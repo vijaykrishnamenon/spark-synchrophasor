@@ -109,7 +109,8 @@ object PDCReceiver {
     val sparkConf = new SparkConf().setAppName("PDCReceiver")
     val ssc = new StreamingContext(sparkConf, Seconds(1))
       
-    val lines = ssc.receiverStream(new PDCReceiver("130.237.53.177", 38100)) //192.168.10.3", 4712))
+    // Use some PDC/ PMU simulator to test this code
+    val lines = ssc.receiverStream(new PDCReceiver("127.0.0.1", 4712))
     
     lines.foreachRDD { rdd => //println(rdd.count)
      rdd.map ( fv => fv("1-FREQ") ).foreach(f => print(f +",") )
