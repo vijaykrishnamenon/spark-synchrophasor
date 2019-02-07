@@ -364,7 +364,7 @@ object Frame {
   def main(args: Array[String]) = {
 
     //val file = new PrintStream("freq.csv")
-    val s = new Socket("192.168.10.3",4712) //130.237.53.177", 38100)
+    val s = new Socket("127.0.0.1",4712)
 
     if (s != null) println("Connected")
     else println("not connected")
